@@ -7,18 +7,27 @@ PODS:
     - Moya/Core
     - RxSwift (~> 3.0)
   - Result (3.2.1)
+  - RxCocoa (3.4.1):
+    - RxSwift (~> 3.4)
+  - RxFeedback (0.1.0):
+    - RxCocoa (~> 3.4)
+    - RxSwift (~> 3.4)
   - RxSwift (3.4.1)
 
 DEPENDENCIES:
   - Moya/RxSwift
+  - RxCocoa
+  - RxFeedback
   - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Moya: a08bc060c7a44eee27447b239ed33a189b641e2b
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
+  RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
+  RxFeedback: c23bebc1a6a0186de2ccf23a9308a4e85f498eb1
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
 
-PODFILE CHECKSUM: 117b7a97ef9221b8ad01cb7f4dd8def7b57cf81b
+PODFILE CHECKSUM: 206add7eccef95aaa32544347630e5ab792d01a7
 
 COCOAPODS: 1.2.1

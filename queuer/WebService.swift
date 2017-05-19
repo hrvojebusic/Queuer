@@ -60,16 +60,19 @@ extension WebService: TargetType {
         }
     }
     
-    var sampleData: Data {
-        switch self {
-        default: return "Nothing here".utf8Encoded
-        }
-    }
-    
     var task: Task {
         switch self {
         case .queues, .enqueue, .dequeue:
             return .request
+        }
+    }
+    
+    var sampleData: Data {
+        switch self {
+        case .queues:
+            let path = Bundle.main.url(forResource: "queues", withExtension: "json")!
+            return try! Data(contentsOf: path)
+        default: return "Nothing here".utf8Encoded
         }
     }
 }

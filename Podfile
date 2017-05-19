@@ -4,6 +4,8 @@ target 'queuer' do
   use_frameworks!
 
   pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxFeedback'
   pod 'Moya/RxSwift'
 
 end
