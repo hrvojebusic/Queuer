@@ -29,6 +29,13 @@ enum DownloadResult<T> {
         }
         return false
     }
+    
+    var isDownloaded: Bool {
+        if case .downloaded = self {
+            return true
+        }
+        return false
+    }
 }
 
 struct QueueListState {
@@ -42,6 +49,7 @@ class QueueListViewModel {
     // Outputs
     let queues: Observable<[QueueViewModel]>
     let showSpinner: Observable<Bool>
+    let contentUpdated: Observable<Void>
     
     init(viewLoaded: Observable<Void>, pullToRefresh: Observable<Void>, provider: RxMoyaProvider<WebService>) {
         let timer = Observable<Int>.interval(10, scheduler: MainScheduler.instance)
@@ -77,8 +85,9 @@ class QueueListViewModel {
             })
         }, downloadEventLoop).shareReplay(1)
 
-        self.queues = system.map { $0.cache }.filter { $0 != nil }.map { $0! }
+        self.queues = system.debug("Prolazim").map { $0.cache }.filter { $0 != nil }.map { $0! }
         self.showSpinner = system.map { $0.result?.isDownloading == true }
+        self.contentUpdated = system.filter { $0.result?.isDownloaded == true }.map { _ in return () }
     }
 
     private static func mapViewModels(dictionaries: [JSONDictionary]) -> [QueueViewModel] {
@@ -107,10 +116,14 @@ extension ObservableType where E == Response {
     
     func mapJSONArray() -> Observable<[JSONDictionary]> {
         return mapJSON().map({ (any) -> [JSONDictionary] in
-            guard let any = any as? [JSONDictionary] else {
+            guard let any2 = any as? JSONDictionary else {
                 throw NSError(domain: "", code: 0, userInfo: nil)
             }
-            return any
+            
+            guard let any3 = any2.jsonArray(key: "queues") else {
+                throw NSError(domain: "", code: 0, userInfo: nil)
+            }
+            return any3
         })
     }
 }
