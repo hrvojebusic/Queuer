@@ -10,15 +10,17 @@ import Foundation
 
 class QueueViewModel {
     
-    let current: Int
-    let nextPublished: Int
-    let timeEstimate: Int
+    let name: String
+    let processingTicketNumber: Int
+    let lastTicketNumber: Int
+    let timeEstimate: Int?
     let orderId: Int?
     
     init(dic: JSONDictionary) throws {
-        current = try dic.intOrThrow(key: "current")
-        nextPublished = try dic.intOrThrow(key: "nextPublished")
-        timeEstimate = try dic.intOrThrow(key: "timeEstimate")
+        name = try dic.stringOrThrow(key: "name")
+        processingTicketNumber = try dic.intOrThrow(key: "processingTicketNumber")
+        lastTicketNumber = try dic.intOrThrow(key: "lastTicketNumber")
+        timeEstimate = dic.int(key: "timeEstimate")
         orderId = dic.int(key: "orderId")
     }
 }

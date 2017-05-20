@@ -23,7 +23,7 @@ extension WebService: TargetType {
     var path: String {
         switch self {
         case .queues:
-            return "/queue"
+            return "/queues"
         case .enqueue:
             return "/queue/register"
         case .dequeue:

@@ -10,10 +10,16 @@
 		65E9E66D1ECF5712008DBB54 /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E9E66B1ECF5712008DBB54 /* TicketViewController.swift */; };
 		65E9E66E1ECF5712008DBB54 /* TicketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E9E66C1ECF5712008DBB54 /* TicketViewController.xib */; };
 		8D8BE379E0B9067DA978A382 /* Pods_queuer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF972E02798F119D268C3F60 /* Pods_queuer.framework */; };
+		FA5462CD1ED0376A00B22CEE /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5462CC1ED0376A00B22CEE /* UIConstants.swift */; };
+		FA5462D11ED043B000B22CEE /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5462CF1ED043B000B22CEE /* QRScannerController.swift */; };
+		FA5462D51ED04B6700B22CEE /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5462D41ED04B6700B22CEE /* TicketViewController.swift */; };
+		FA5462DA1ED0504E00B22CEE /* NavigationContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5462D91ED0504E00B22CEE /* NavigationContainerViewController.swift */; };
 		FA88D4C71ECEF6DC0080D774 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88D4C61ECEF6DC0080D774 /* AppDelegate.swift */; };
-		FA88D4CC1ECEF6DC0080D774 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88D4CA1ECEF6DC0080D774 /* Main.storyboard */; };
 		FA88D4CE1ECEF6DC0080D774 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA88D4CD1ECEF6DC0080D774 /* Assets.xcassets */; };
-		FA88D4D11ECEF6DC0080D774 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88D4CF1ECEF6DC0080D774 /* LaunchScreen.storyboard */; };
+		FACDD8E51ECF5D94007408BE /* ReadyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDD8E31ECF5D94007408BE /* ReadyTableViewCell.swift */; };
+		FACDD8E61ECF5D94007408BE /* ReadyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACDD8E41ECF5D94007408BE /* ReadyTableViewCell.xib */; };
+		FACDD8E81ECF6501007408BE /* SectionOfData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDD8E71ECF6501007408BE /* SectionOfData.swift */; };
+		FACDD8EA1ECF7449007408BE /* QueuesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDD8E91ECF7449007408BE /* QueuesWrapper.swift */; };
 		FAE51ED71ECEF91900C3D561 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE51ED61ECEF91900C3D561 /* WebService.swift */; };
 		FAE51EDB1ECEFEE500C3D561 /* QueuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE51ED91ECEFEE500C3D561 /* QueuesViewController.swift */; };
 		FAE51EDF1ECEFF5500C3D561 /* QueueViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE51EDD1ECEFF5500C3D561 /* QueueViewCell.swift */; };
@@ -30,12 +36,18 @@
 		65E9E66C1ECF5712008DBB54 /* TicketViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketViewController.xib; sourceTree = "<group>"; };
 		7524B196D719C236E92A2E78 /* Pods-queuer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-queuer.release.xcconfig"; path = "Pods/Target Support Files/Pods-queuer/Pods-queuer.release.xcconfig"; sourceTree = "<group>"; };
 		CF972E02798F119D268C3F60 /* Pods_queuer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_queuer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA5462CC1ED0376A00B22CEE /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		FA5462CF1ED043B000B22CEE /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
+		FA5462D41ED04B6700B22CEE /* TicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
+		FA5462D91ED0504E00B22CEE /* NavigationContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationContainerViewController.swift; sourceTree = "<group>"; };
 		FA88D4C31ECEF6DC0080D774 /* queuer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = queuer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA88D4C61ECEF6DC0080D774 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA88D4CB1ECEF6DC0080D774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA88D4CD1ECEF6DC0080D774 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA88D4D01ECEF6DC0080D774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA88D4D21ECEF6DC0080D774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FACDD8E31ECF5D94007408BE /* ReadyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadyTableViewCell.swift; sourceTree = "<group>"; };
+		FACDD8E41ECF5D94007408BE /* ReadyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadyTableViewCell.xib; sourceTree = "<group>"; };
+		FACDD8E71ECF6501007408BE /* SectionOfData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionOfData.swift; sourceTree = "<group>"; };
+		FACDD8E91ECF7449007408BE /* QueuesWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueuesWrapper.swift; sourceTree = "<group>"; };
 		FAE51ED61ECEF91900C3D561 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		FAE51ED91ECEFEE500C3D561 /* QueuesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueuesViewController.swift; sourceTree = "<group>"; };
 		FAE51EDD1ECEFF5500C3D561 /* QueueViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueViewCell.swift; sourceTree = "<group>"; };
@@ -75,6 +87,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA5462CE1ED0430F00B22CEE /* QRScanning */ = {
+			isa = PBXGroup;
+			children = (
+				FA5462CF1ED043B000B22CEE /* QRScannerController.swift */,
+			);
+			name = QRScanning;
+			sourceTree = "<group>";
+		};
+		FA5462D31ED04B4D00B22CEE /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				FA5462D41ED04B6700B22CEE /* TicketViewController.swift */,
+			);
+			name = Ticket;
+			sourceTree = "<group>";
+		};
+		FA5462D61ED04E8800B22CEE /* NavigationService */ = {
+			isa = PBXGroup;
+			children = (
+				FA5462D91ED0504E00B22CEE /* NavigationContainerViewController.swift */,
+			);
+			name = NavigationService;
+			sourceTree = "<group>";
+		};
 		FA88D4BA1ECEF6DC0080D774 = {
 			isa = PBXGroup;
 			children = (
@@ -101,13 +137,22 @@
 				FAE51ED81ECEFEA900C3D561 /* UserInterface */,
 				FAE51ED51ECEF90A00C3D561 /* Networking */,
 				FA88D4C61ECEF6DC0080D774 /* AppDelegate.swift */,
-				FA88D4CA1ECEF6DC0080D774 /* Main.storyboard */,
 				FA88D4CD1ECEF6DC0080D774 /* Assets.xcassets */,
-				FA88D4CF1ECEF6DC0080D774 /* LaunchScreen.storyboard */,
 				FA88D4D21ECEF6DC0080D774 /* Info.plist */,
 				FAE51EE91ECF217400C3D561 /* queues.json */,
 			);
 			path = queuer;
+			sourceTree = "<group>";
+		};
+		FACDD8E21ECF5D5B007408BE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FACDD8E31ECF5D94007408BE /* ReadyTableViewCell.swift */,
+				FACDD8E41ECF5D94007408BE /* ReadyTableViewCell.xib */,
+				FAE51EDD1ECEFF5500C3D561 /* QueueViewCell.swift */,
+				FAE51EDE1ECEFF5500C3D561 /* QueueViewCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		FAE51ED51ECEF90A00C3D561 /* Networking */ = {
@@ -121,12 +166,15 @@
 		FAE51ED81ECEFEA900C3D561 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				FA5462D61ED04E8800B22CEE /* NavigationService */,
+				FA5462D31ED04B4D00B22CEE /* Ticket */,
+				FA5462CE1ED0430F00B22CEE /* QRScanning */,
+				FACDD8E21ECF5D5B007408BE /* Cells */,
 				FAE51ED91ECEFEE500C3D561 /* QueuesViewController.swift */,
-				FAE51EDD1ECEFF5500C3D561 /* QueueViewCell.swift */,
-				FAE51EDE1ECEFF5500C3D561 /* QueueViewCell.xib */,
 				FAE51EE11ECF00BF00C3D561 /* QueueListViewModel.swift */,
 				65E9E66B1ECF5712008DBB54 /* TicketViewController.swift */,
 				65E9E66C1ECF5712008DBB54 /* TicketViewController.xib */,
+				FA5462CC1ED0376A00B22CEE /* UIConstants.swift */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -134,7 +182,9 @@
 		FAE51EE31ECF012400C3D561 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FACDD8E71ECF6501007408BE /* SectionOfData.swift */,
 				FAE51EE41ECF013400C3D561 /* QueueViewModel.swift */,
+				FACDD8E91ECF7449007408BE /* QueuesWrapper.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -211,11 +261,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAE51EE01ECEFF5500C3D561 /* QueueViewCell.xib in Resources */,
-				FA88D4D11ECEF6DC0080D774 /* LaunchScreen.storyboard in Resources */,
 				65E9E66E1ECF5712008DBB54 /* TicketViewController.xib in Resources */,
 				FA88D4CE1ECEF6DC0080D774 /* Assets.xcassets in Resources */,
 				FAE51EEA1ECF217400C3D561 /* queues.json in Resources */,
-				FA88D4CC1ECEF6DC0080D774 /* Main.storyboard in Resources */,
+				FACDD8E61ECF5D94007408BE /* ReadyTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,36 +324,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				65E9E66D1ECF5712008DBB54 /* TicketViewController.swift in Sources */,
+				FA5462DA1ED0504E00B22CEE /* NavigationContainerViewController.swift in Sources */,
 				FAE51EE21ECF00BF00C3D561 /* QueueListViewModel.swift in Sources */,
 				FAE51EE51ECF013400C3D561 /* QueueViewModel.swift in Sources */,
+				FA5462D51ED04B6700B22CEE /* TicketViewController.swift in Sources */,
 				FAE51EDB1ECEFEE500C3D561 /* QueuesViewController.swift in Sources */,
+				FACDD8E51ECF5D94007408BE /* ReadyTableViewCell.swift in Sources */,
+				FACDD8E81ECF6501007408BE /* SectionOfData.swift in Sources */,
+				FA5462D11ED043B000B22CEE /* QRScannerController.swift in Sources */,
+				FACDD8EA1ECF7449007408BE /* QueuesWrapper.swift in Sources */,
 				FAE51EDF1ECEFF5500C3D561 /* QueueViewCell.swift in Sources */,
 				FAE51ED71ECEF91900C3D561 /* WebService.swift in Sources */,
+				FA5462CD1ED0376A00B22CEE /* UIConstants.swift in Sources */,
 				FA88D4C71ECEF6DC0080D774 /* AppDelegate.swift in Sources */,
 				FAE51EE81ECF0C2D00C3D561 /* Dictionary+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		FA88D4CA1ECEF6DC0080D774 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA88D4CB1ECEF6DC0080D774 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FA88D4CF1ECEF6DC0080D774 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA88D4D01ECEF6DC0080D774 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FA88D4D31ECEF6DC0080D774 /* Debug */ = {
@@ -407,6 +444,7 @@
 			baseConfigurationReference = 314D289D3B9C8727B776B10D /* Pods-queuer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = N7F4RRGV6J;
 				INFOPLIST_FILE = queuer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -421,6 +459,7 @@
 			baseConfigurationReference = 7524B196D719C236E92A2E78 /* Pods-queuer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = N7F4RRGV6J;
 				INFOPLIST_FILE = queuer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

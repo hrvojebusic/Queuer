@@ -7,5 +7,6 @@ target 'queuer' do
   pod 'RxCocoa'
   pod 'RxFeedback'
   pod 'Moya/RxSwift'
+  pod 'RxDataSources'
 
 end
