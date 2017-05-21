@@ -12,7 +12,7 @@ import Moya
 enum WebService {
     case queues
     case enqueue(queueId: String)
-    case dequeue(orderId: String)
+    case dequeue(queueId: String, ticketNumber: Int)
 }
 
 // MARK: - TargetType Protocol Implementation
@@ -46,8 +46,8 @@ extension WebService: TargetType {
             return nil
         case .enqueue(let queueId):
             return ["queueId": queueId]
-        case .dequeue(let orderId):
-            return ["orderId": orderId]
+        case .dequeue(let queueId, let ticketNumber):
+            return ["queueId": queueId, "ticketNumber": ticketNumber]
         }
     }
     
@@ -70,9 +70,15 @@ extension WebService: TargetType {
     var sampleData: Data {
         switch self {
         case .queues:
-            let path = Bundle.main.url(forResource: "queues", withExtension: "json")!
-            return try! Data(contentsOf: path)
-        default: return "Nothing here".utf8Encoded
+            return stubbedResponse("queues")
+        case .enqueue(let id):
+            if id == "test" {
+                return stubbedResponse("qr_scan_success")
+            } else {
+                return stubbedResponse("qr_scan_failure")
+            }
+        case .dequeue:
+            return stubbedResponse("ticket_invalidated_success")
         }
     }
 }
@@ -86,5 +92,13 @@ private extension String {
     
     var utf8Encoded: Data {
         return self.data(using: .utf8)!
+    }
+}
+
+extension WebService {
+    
+    func stubbedResponse(_ fileName: String) -> Data {
+        let path = Bundle.main.url(forResource: fileName, withExtension: "json")
+        return try! Data(contentsOf: path!)
     }
 }

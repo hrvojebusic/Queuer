@@ -8,19 +8,48 @@
 
 import Foundation
 
+enum TicketState {
+    case notTaken
+    case waiting
+    case ready
+    case canceled
+}
+
 class QueueViewModel {
     
-    let name: String
-    let processingTicketNumber: Int
-    let lastTicketNumber: Int
-    let timeEstimate: Int?
-    let orderId: Int?
+    var ticketState: TicketState
+    var queueName: String
+    var processingTicketNumber: Int
+    var lastTicketNumber: Int
+    var timeEstimate: Int
+    var takenTicketNumber: Int?
+    
+    var ticketObtained: Bool {
+        return ticketState != .notTaken
+    }
     
     init(dic: JSONDictionary) throws {
-        name = try dic.stringOrThrow(key: "name")
+        queueName = try dic.stringOrThrow(key: "name")
         processingTicketNumber = try dic.intOrThrow(key: "processingTicketNumber")
         lastTicketNumber = try dic.intOrThrow(key: "lastTicketNumber")
-        timeEstimate = dic.int(key: "timeEstimate")
-        orderId = dic.int(key: "orderId")
+        timeEstimate = try dic.intOrThrow(key: "timeEstimate")
+        takenTicketNumber = dic.int(key: "ticketNumber")
+        
+        if let order = takenTicketNumber {
+            if order == processingTicketNumber {
+                ticketState = .ready
+            } else if order > processingTicketNumber {
+                ticketState = .waiting
+            } else {
+                ticketState = .canceled
+            }
+        } else {
+            ticketState = .notTaken
+        }
+    }
+    
+    func userCanceledTicket() {
+        ticketState = .notTaken
+        takenTicketNumber = nil
     }
 }

@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Moya
 import RxSwift
+import Moya
 
 class NavigationContainerViewController: UIViewController {
     
@@ -33,6 +33,11 @@ class NavigationContainerViewController: UIViewController {
         }
     }
     
+    func pushInitial(_ launchViewController: UIViewController) {
+        currentNavigationController = UINavigationController(navigationBarClass: QueuesNavigationBar.self, toolbarClass: nil)
+        push(launchViewController, animated: false)
+    }
+    
     func push(_ viewController: UIViewController, inNavigationController navigationController: UINavigationController? = nil, animated: Bool, byReplacingTheStack: Bool = false) {
         let nvc = navigationController ?? currentNavigationController
         if byReplacingTheStack {
@@ -51,7 +56,9 @@ class NavigationContainerViewController: UIViewController {
     }
     
     func present(_ viewController: UIViewController, animated: Bool) {
-        let navigationController = UINavigationController(rootViewController: viewController)
+        currentNavigationController.dismiss(animated: true, completion: nil)
+        let navigationController = UINavigationController(navigationBarClass: QueuesNavigationBar.self, toolbarClass: nil)
+        navigationController.addChildViewController(viewController)
         currentNavigationController.present(navigationController, animated: animated, completion: nil)
     }
     
@@ -59,28 +66,18 @@ class NavigationContainerViewController: UIViewController {
         currentNavigationController.dismiss(animated: animated, completion: nil)
     }
     
-    func pushLaunchViewController() {
-        let launchViewController = QueuesViewController()
-        let provider = RxMoyaProvider<WebService>.init(stubClosure: MoyaProvider.delayedStub(1))
-        let viewModel = QueueListViewModel(viewLoaded: launchViewController.viewDidLoadSignal, pullToRefresh: launchViewController.pullToRefreshSignal, provider: provider)
-        launchViewController.viewModel = viewModel
-        launchViewController.queueSelectedSignal.subscribe(onNext: { [weak self] string in
-            self?.presentQRScannerViewController()
-        }).disposed(by: disposeBag)
-        
-        let navController = UINavigationController()
-        navController.pushViewController(launchViewController, animated: false)
-        currentNavigationController = navController
-    }
-    
-    func presentQRScannerViewController() {
-        let qrScannerViewController = QRScannerController()
-        qrScannerViewController.objectScanned.take(1)
-            .subscribe(onNext: { [weak self ]_ in
-                self?.dissmis(true)
-            })
-            .disposed(by: disposeBag)
-        
-        present(qrScannerViewController, animated: true)
+    func showActivity(_ show: Bool) {
+        var view = currentNavigationController.view
+        if let modal = currentNavigationController.topViewController?.presentedViewController, !modal.isKind(of: UIAlertController.self) {
+            view = modal.view
+        }
+        if let view = view {
+            if (show) {
+                ProgressView.shared.showProgressView(view)
+            } else {
+                ProgressView.shared.hideProgressView()
+            }
+        }
+        currentNavigationController.interactivePopGestureRecognizer?.isEnabled = !show
     }
 }

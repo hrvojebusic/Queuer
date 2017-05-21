@@ -10,13 +10,17 @@ import UIKit
 
 class ReadyTableViewCell: UITableViewCell {
 
+    @IBOutlet var chevronIcon: UIImageView!
     @IBOutlet var queueNameLabel: UILabel!
     @IBOutlet var ticketReadyLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        selectionStyle = .none
         backgroundColor = UIConstants.readyCellBackgroundColor
+        
+        chevronIcon.image = UIImage(named: "WhiteChevron")
         
         queueNameLabel.font = UIConstants.readyCellQueueNameFont
         queueNameLabel.textColor = UIConstants.readyCellQueueNameColor
@@ -27,6 +31,6 @@ class ReadyTableViewCell: UITableViewCell {
     }
     
     func setup(withModel model: QueueViewModel) {
-        queueNameLabel.text = model.name
+        queueNameLabel.text = model.queueName
     }
 }

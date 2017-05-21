@@ -25,39 +25,37 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ticket is ready appropriate message" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5f-c8-095">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some long appropriate message" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5f-c8-095">
                         <rect key="frame" x="16" y="51.5" width="288" height="57.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WhiteChevron" translatesAutoresizingMaskIntoConstraints="NO" id="edL-Nv-SPA">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Su-XS-Pkh">
                         <rect key="frame" x="296" y="16" width="8" height="13"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="13" id="Xvm-Yn-z8q"/>
-                            <constraint firstAttribute="width" constant="8" id="hX3-QK-3Fx"/>
+                            <constraint firstAttribute="height" constant="13" id="3bO-0l-lgh"/>
+                            <constraint firstAttribute="width" constant="8" id="JIu-Z2-nWs"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="MFB-3f-0H4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="5Gv-3I-z3c"/>
                     <constraint firstItem="MFB-3f-0H4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="DJY-Z1-2YA"/>
-                    <constraint firstItem="edL-Nv-SPA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="KDg-IR-zox"/>
+                    <constraint firstAttribute="trailing" secondItem="0Su-XS-Pkh" secondAttribute="trailing" constant="16" id="NU8-pN-1Mz"/>
+                    <constraint firstItem="0Su-XS-Pkh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="P1D-dQ-vji"/>
                     <constraint firstItem="N5f-c8-095" firstAttribute="leading" secondItem="MFB-3f-0H4" secondAttribute="leading" id="TVP-Ob-bk6"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="N5f-c8-095" secondAttribute="bottom" constant="16" id="Urv-pv-pJw"/>
-                    <constraint firstAttribute="trailing" secondItem="edL-Nv-SPA" secondAttribute="trailing" constant="16" id="en9-WG-dk1"/>
                     <constraint firstItem="N5f-c8-095" firstAttribute="top" secondItem="MFB-3f-0H4" secondAttribute="bottom" constant="16" id="ix2-U2-tFT"/>
                     <constraint firstAttribute="trailing" secondItem="N5f-c8-095" secondAttribute="trailing" constant="16" id="v3h-IY-P4y"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="chevronIcon" destination="0Su-XS-Pkh" id="2ft-6K-2L8"/>
                 <outlet property="queueNameLabel" destination="MFB-3f-0H4" id="myd-1u-zOH"/>
                 <outlet property="ticketReadyLabel" destination="N5f-c8-095" id="zwz-PV-I8L"/>
             </connections>
             <point key="canvasLocation" x="35" y="102"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="WhiteChevron" width="8" height="13"/>
-    </resources>
 </document>

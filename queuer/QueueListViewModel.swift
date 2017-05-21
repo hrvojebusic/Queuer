@@ -44,21 +44,19 @@ struct QueueListState {
     var result: DownloadResult<[QueueViewModel]>?
 }
 
-class QueueListViewModel {
+class QueuesViewModel {
 
     // Outputs
     let queues: Observable<[QueueViewModel]>
-    let showSpinner: Observable<Bool>
+    let contentUpdating: Observable<Bool>
     let contentUpdated: Observable<Void>
     
-    init(viewLoaded: Observable<Void>, pullToRefresh: Observable<Void>, provider: RxMoyaProvider<WebService>) {
-        let timer = Observable<Int>.interval(10, scheduler: MainScheduler.instance)
-
+    init(downloadContentSignal: PublishSubject<Void>, provider: RxMoyaProvider<WebService>) {
         let downloadEventLoop: (Observable<QueueListState>) -> Observable<QueueListEvent> = { _ -> Observable<QueueListEvent> in
-            return Observable.merge(viewLoaded, pullToRefresh.debug("Pull to refresh"), timer.map { _ in () }).map { QueueListEvent.download }
+            return downloadContentSignal.asObserver().map { QueueListEvent.download }
         }
 
-        let system = Observable.system(initialState: QueueListState.init(shouldDownload: false, cache: nil, result: nil), reduce: { state, event -> QueueListState in
+        let system = Observable.system(initialState: QueueListState(shouldDownload: false, cache: nil, result: nil), reduce: { state, event -> QueueListState in
             var newState = state
             newState.shouldDownload = false
             switch event {
@@ -76,7 +74,7 @@ class QueueListViewModel {
         }, scheduler: MainScheduler.instance, feedback: { state -> Observable<QueueListEvent> in
             return state.filter { $0.shouldDownload }.flatMapLatest({ (_) -> Observable<QueueListEvent> in
                 return provider.request(.queues).mapJSONArray()
-                    .map { QueueListViewModel.mapViewModels(dictionaries: $0) }
+                    .map { QueuesViewModel.mapViewModels(dictionaries: $0) }
                     .map { QueueListEvent.downloaded($0) }
                     .startWith(QueueListEvent.downloading)
                     .catchError({ (error) -> Observable<QueueListEvent> in
@@ -85,8 +83,8 @@ class QueueListViewModel {
             })
         }, downloadEventLoop).shareReplay(1)
 
-        self.queues = system.debug("Prolazim").map { $0.cache }.filter { $0 != nil }.map { $0! }
-        self.showSpinner = system.map { $0.result?.isDownloading == true }
+        self.queues = system.map { $0.cache }.filter { $0 != nil }.map { $0! }
+        self.contentUpdating = system.map { $0.result?.isDownloading == true }
         self.contentUpdated = system.filter { $0.result?.isDownloaded == true }.map { _ in return () }
     }
 
