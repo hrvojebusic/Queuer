@@ -222,7 +222,6 @@
 		FAE51EE31ECF012400C3D561 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FACDD8E71ECF6501007408BE /* SectionOfData.swift */,
 				FAE51EE41ECF013400C3D561 /* QueueViewModel.swift */,
 				FACDD8E91ECF7449007408BE /* QueuesWrapper.swift */,
 			);
@@ -242,6 +241,7 @@
 			children = (
 				FAE51ED91ECEFEE500C3D561 /* QueueListViewController.swift */,
 				FAE51EE11ECF00BF00C3D561 /* QueueListViewModel.swift */,
+				FACDD8E71ECF6501007408BE /* SectionOfData.swift */,
 				FACDD8E21ECF5D5B007408BE /* Cells */,
 			);
 			name = QueueList;
