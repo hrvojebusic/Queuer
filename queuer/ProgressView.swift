@@ -25,7 +25,6 @@ class ProgressView {
     open func showProgressView(_ view: UIView) {
         containerView.frame = view.frame
         containerView.center = view.center
-        containerView.backgroundColor = UIColor(red: 10/255, green: 67/255, blue: 121/255, alpha: 0.7)
         
         progressView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
         progressView.center = view.center

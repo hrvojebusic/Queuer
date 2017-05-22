@@ -21,8 +21,7 @@ class QRScannerViewController: UIViewController {
     let codeScanned = PublishSubject<String>()
 
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var messageLabel: UILabel!
-
+    
     // View
     var overlay: UIView!
     var yellowBorder: UIView!
@@ -64,7 +63,7 @@ class QRScannerViewController: UIViewController {
     // MARK:- Navigation bar
     private func setupNavigationBar() {
         navigationItem.title = UIConstants.qrScannerTitle
-        let dismissButton = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
+        let dismissButton = UIBarButtonItem(image: UIImage(named: "ButtonClose"), style: .done, target: nil, action: nil)
         dismissButton.rx.tap.bind(to: scannerDismised).disposed(by: disposeBag)
         navigationItem.leftBarButtonItem = dismissButton
     }
@@ -73,8 +72,8 @@ class QRScannerViewController: UIViewController {
     private func setupViews() {
         let rectangle = createRectangleGap()
         overlay = createOverlay(forRectangle: rectangle)
-        yellowBorder = createBorder(forRectangle: rectangle, ofColor: .yellow)
-        greenBorder = createBorder(forRectangle: rectangle, ofColor: .green)
+        yellowBorder = createBorder(forRectangle: rectangle, ofColor: UIConstants.qrScannerYellowBorder)
+        greenBorder = createBorder(forRectangle: rectangle, ofColor: UIConstants.qrScannerGreenBorder)
         
         view.addSubview(overlay)
         view.addSubview(yellowBorder)
@@ -112,7 +111,7 @@ class QRScannerViewController: UIViewController {
     private func createBorder(forRectangle rectangle: CGRect, ofColor color: UIColor) -> UIView {
         let borderView = UIView()
         borderView.layer.borderColor = color.cgColor
-        borderView.layer.borderWidth = 1
+        borderView.layer.borderWidth = 2
         borderView.frame = rectangle
         return borderView
     }
@@ -122,13 +121,9 @@ class QRScannerViewController: UIViewController {
         descriptionLabel.font = UIConstants.qrScannerDescriptionLabelFont
         descriptionLabel.textColor = UIConstants.qrScannerDescriptionLabelColor
         descriptionLabel.text = UIConstants.qrScannerDescriptionLabelText
-        
-        messageLabel.font = UIConstants.qrScannerSuccessMessageLabelFont
-        messageLabel.textColor = UIConstants.qrScannerSuccessMessageLabelColor
-        messageLabel.text = UIConstants.qrScannerSuccessMessageLabelText
     }
     
-    // MARK:- QR scanninge
+    // MARK:- QR scanning
     private func setupScanning() throws {
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
@@ -161,7 +156,6 @@ class QRScannerViewController: UIViewController {
     private func codeApproved() {
         captureSessionPaused = true
         view.bringSubview(toFront: greenBorder)
-        view.bringSubview(toFront: messageLabel)
     }
 }
 

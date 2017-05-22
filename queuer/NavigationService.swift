@@ -57,7 +57,7 @@ class NavigationService {
         navigationContainer.present(qrScannerViewController, animated: true)
     }
     
-    func presentTicketViewController(withModel model: QueueViewModel) {
+    func presentTicketViewController(withModel model: QueueViewModel, fromNotification: Bool = false) {
         let ticketViewController = TicketViewController()
         ticketViewController.viewModel = model
         
@@ -80,6 +80,6 @@ class NavigationService {
                 }
             }).disposed(by: disposeBag)
         
-        navigationContainer.push(ticketViewController, animated: true)
+        navigationContainer.push(ticketViewController, animated: true, byReplacingTheStack: fromNotification)
     }
 }

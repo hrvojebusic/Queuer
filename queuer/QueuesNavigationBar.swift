@@ -21,14 +21,18 @@ class QueuesNavigationBar: UINavigationBar {
     }
     
     private func setup() {
-        barTintColor = UIConstants.navigationBarTintColor
+        tintColor = UIConstants.navigationBarTintColor
+        barTintColor = UIConstants.navigationBarBarTintColor
         isTranslucent = false
         setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         shadowImage = UIImage()
         titleTextAttributes = [NSFontAttributeName: UIConstants.navigationItemTitleFont,
                                NSForegroundColorAttributeName: UIConstants.navigationItemTitleColor]
         UIBarButtonItem.appearance().setTitleTextAttributes(
-            [NSFontAttributeName: UIConstants.navigationItemTitleFont,
-             NSForegroundColorAttributeName: UIConstants.navigationItemButtonColor], for: .normal)
+            [NSFontAttributeName: UIConstants.navigationItemTitleFont], for: .normal)
+        
+        let backImage = UIImage(named: "BackWhiteChevron")
+        backIndicatorImage = backImage
+        backIndicatorTransitionMaskImage = backImage
     } 
 }

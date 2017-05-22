@@ -25,7 +25,6 @@
 		FACDD8E51ECF5D94007408BE /* ReadyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDD8E31ECF5D94007408BE /* ReadyTableViewCell.swift */; };
 		FACDD8E61ECF5D94007408BE /* ReadyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FACDD8E41ECF5D94007408BE /* ReadyTableViewCell.xib */; };
 		FACDD8E81ECF6501007408BE /* SectionOfData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDD8E71ECF6501007408BE /* SectionOfData.swift */; };
-		FACDD8EA1ECF7449007408BE /* QueuesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACDD8E91ECF7449007408BE /* QueuesWrapper.swift */; };
 		FAE145ED1ED0B5DA00577659 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE145EC1ED0B5DA00577659 /* NavigationService.swift */; };
 		FAE145F01ED0B77000577659 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE145EE1ED0B77000577659 /* QRScannerViewController.swift */; };
 		FAE145F11ED0B77000577659 /* QRScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAE145EF1ED0B77000577659 /* QRScannerViewController.xib */; };
@@ -35,6 +34,8 @@
 		FAE51EE51ECF013400C3D561 /* QueueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE51EE41ECF013400C3D561 /* QueueViewModel.swift */; };
 		FAE51EE81ECF0C2D00C3D561 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE51EE71ECF0C2D00C3D561 /* Dictionary+Extensions.swift */; };
 		FAE51EEA1ECF217400C3D561 /* queues.json in Resources */ = {isa = PBXBuildFile; fileRef = FAE51EE91ECF217400C3D561 /* queues.json */; };
+		FAEE43F11ED2F6E70006B1A8 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE43F01ED2F6E70006B1A8 /* RoomViewModel.swift */; };
+		FAEE43F41ED31DC90006B1A8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE43F31ED31DC90006B1A8 /* NotificationService.swift */; };
 		FAFEB2E41ED08E7A00C07F56 /* QueuesNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEB2E31ED08E7A00C07F56 /* QueuesNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +63,6 @@
 		FACDD8E31ECF5D94007408BE /* ReadyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadyTableViewCell.swift; sourceTree = "<group>"; };
 		FACDD8E41ECF5D94007408BE /* ReadyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadyTableViewCell.xib; sourceTree = "<group>"; };
 		FACDD8E71ECF6501007408BE /* SectionOfData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionOfData.swift; sourceTree = "<group>"; };
-		FACDD8E91ECF7449007408BE /* QueuesWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueuesWrapper.swift; sourceTree = "<group>"; };
 		FAE145EC1ED0B5DA00577659 /* NavigationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
 		FAE145EE1ED0B77000577659 /* QRScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		FAE145EF1ED0B77000577659 /* QRScannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRScannerViewController.xib; sourceTree = "<group>"; };
@@ -72,6 +72,8 @@
 		FAE51EE41ECF013400C3D561 /* QueueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueViewModel.swift; sourceTree = "<group>"; };
 		FAE51EE71ECF0C2D00C3D561 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		FAE51EE91ECF217400C3D561 /* queues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = queues.json; sourceTree = "<group>"; };
+		FAEE43F01ED2F6E70006B1A8 /* RoomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
+		FAEE43F31ED31DC90006B1A8 /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		FAFEB2E31ED08E7A00C07F56 /* QueuesNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueuesNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +213,7 @@
 			children = (
 				FA5462CC1ED0376A00B22CEE /* UIConstants.swift */,
 				FA5462D61ED04E8800B22CEE /* NavigationService */,
+				FAEE43F21ED31DAD0006B1A8 /* Notifications */,
 				FAFEB2E21ED08D8E00C07F56 /* QueueList */,
 				FA5462D31ED04B4D00B22CEE /* Ticket */,
 				FA3406AB1ED2342800C3B57D /* ProgressView */,
@@ -222,8 +225,8 @@
 		FAE51EE31ECF012400C3D561 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FAEE43F01ED2F6E70006B1A8 /* RoomViewModel.swift */,
 				FAE51EE41ECF013400C3D561 /* QueueViewModel.swift */,
-				FACDD8E91ECF7449007408BE /* QueuesWrapper.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -234,6 +237,14 @@
 				FAE51EE71ECF0C2D00C3D561 /* Dictionary+Extensions.swift */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		FAEE43F21ED31DAD0006B1A8 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE43F31ED31DC90006B1A8 /* NotificationService.swift */,
+			);
+			name = Notifications;
 			sourceTree = "<group>";
 		};
 		FAFEB2E21ED08D8E00C07F56 /* QueueList */ = {
@@ -285,6 +296,9 @@
 						DevelopmentTeam = N7F4RRGV6J;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -386,6 +400,7 @@
 				65E9E66D1ECF5712008DBB54 /* TicketViewController.swift in Sources */,
 				FAFEB2E41ED08E7A00C07F56 /* QueuesNavigationBar.swift in Sources */,
 				FA5462DA1ED0504E00B22CEE /* NavigationContainerViewController.swift in Sources */,
+				FAEE43F41ED31DC90006B1A8 /* NotificationService.swift in Sources */,
 				FAE145ED1ED0B5DA00577659 /* NavigationService.swift in Sources */,
 				FAE51EE21ECF00BF00C3D561 /* QueueListViewModel.swift in Sources */,
 				FAE51EE51ECF013400C3D561 /* QueueViewModel.swift in Sources */,
@@ -394,13 +409,13 @@
 				FAE51EDB1ECEFEE500C3D561 /* QueueListViewController.swift in Sources */,
 				FACDD8E51ECF5D94007408BE /* ReadyTableViewCell.swift in Sources */,
 				FACDD8E81ECF6501007408BE /* SectionOfData.swift in Sources */,
-				FACDD8EA1ECF7449007408BE /* QueuesWrapper.swift in Sources */,
 				FAE145F01ED0B77000577659 /* QRScannerViewController.swift in Sources */,
 				FAE51ED71ECEF91900C3D561 /* WebService.swift in Sources */,
 				FA5462CD1ED0376A00B22CEE /* UIConstants.swift in Sources */,
 				FA88D4C71ECEF6DC0080D774 /* AppDelegate.swift in Sources */,
 				FAE51EE81ECF0C2D00C3D561 /* Dictionary+Extensions.swift in Sources */,
 				FA3406AD1ED2343A00C3B57D /* ProgressView.swift in Sources */,
+				FAEE43F11ED2F6E70006B1A8 /* RoomViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +444,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: hrvoje.busic@fer.hr (K7PR4G9M42)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: hrvoje.busic@fer.hr (K7PR4G9M42)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = N7F4RRGV6J;
@@ -513,6 +529,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = queuer/queuer.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: hrvoje.busic@fer.hr (K7PR4G9M42)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: hrvoje.busic@fer.hr (K7PR4G9M42)";
 				DEVELOPMENT_TEAM = N7F4RRGV6J;
 				INFOPLIST_FILE = queuer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -521,6 +539,7 @@
 				PROVISIONING_PROFILE = "debf4b79-8ce4-493a-bb38-66f1df2d409a";
 				PROVISIONING_PROFILE_SPECIFIER = "Queuer Development Profile";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -531,6 +550,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = queuer/queuer.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: hrvoje.busic@fer.hr (K7PR4G9M42)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: hrvoje.busic@fer.hr (K7PR4G9M42)";
 				DEVELOPMENT_TEAM = N7F4RRGV6J;
 				INFOPLIST_FILE = queuer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -539,6 +560,7 @@
 				PROVISIONING_PROFILE = "debf4b79-8ce4-493a-bb38-66f1df2d409a";
 				PROVISIONING_PROFILE_SPECIFIER = "Queuer Development Profile";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

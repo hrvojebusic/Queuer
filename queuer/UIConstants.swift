@@ -21,13 +21,11 @@ class UIConstants: NSObject {
     static let actionButtonColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     static let actionButtonFont = UIFont.boldSystemFont(ofSize: 16.0)
     
-    static let navigationBarTintColor = UIColor(red: 10/255, green: 67/255, blue: 121/255, alpha: 1.0)
+    static let navigationBarTintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+    static let navigationBarBarTintColor = UIColor(red: 10/255, green: 67/255, blue: 121/255, alpha: 1.0)
     
     static let navigationItemTitleColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
     static let navigationItemTitleFont = UIFont.boldSystemFont(ofSize: 16.0)
-    
-    static let navigationItemButtonColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
-    static let navigationItemButtonFont = UIFont.boldSystemFont(ofSize: 16.0)
     
     static let cameraOverlayColor = UIColor(red: 10/255, green: 67/255, blue: 121/255, alpha: 1.0)
     
@@ -94,4 +92,7 @@ class UIConstants: NSObject {
     static let qrScannerSuccessMessageLabelFont = UIFont.boldSystemFont(ofSize: 24.0)
     static let qrScannerSuccessMessageLabelColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 1)
     static let qrScannerSuccessMessageLabelText = "QR kod očitan!"
+    
+    static let qrScannerYellowBorder = UIColor(red: 241/255, green: 208/255, blue: 33/255, alpha: 1.0)
+    static let qrScannerGreenBorder = UIColor(red: 10/255, green: 121/255, blue: 24/255, alpha: 1.0)
 }

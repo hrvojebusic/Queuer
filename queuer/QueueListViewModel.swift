@@ -15,7 +15,7 @@ enum QueueListEvent {
     case download
     case downloading
     case error(Swift.Error)
-    case downloaded([QueueViewModel])
+    case downloaded(RoomViewModel)
 }
 
 enum DownloadResult<T> {
@@ -40,14 +40,14 @@ enum DownloadResult<T> {
 
 struct QueueListState {
     var shouldDownload: Bool
-    var cache: [QueueViewModel]?
-    var result: DownloadResult<[QueueViewModel]>?
+    var cache: RoomViewModel?
+    var result: DownloadResult<RoomViewModel>?
 }
 
 class QueuesViewModel {
 
     // Outputs
-    let queues: Observable<[QueueViewModel]>
+    let room: Observable<RoomViewModel>
     let contentUpdating: Observable<Bool>
     let contentUpdated: Observable<Void>
     
@@ -73,31 +73,36 @@ class QueuesViewModel {
             return newState
         }, scheduler: MainScheduler.instance, feedback: { state -> Observable<QueueListEvent> in
             return state.filter { $0.shouldDownload }.flatMapLatest({ (_) -> Observable<QueueListEvent> in
-                return provider.request(.queues).mapJSONArray()
-                    .map { QueuesViewModel.mapViewModels(dictionaries: $0) }
+                return provider.request(.queues).mapJSONDictionary()
+                    .map { QueuesViewModel.mapRoomModel(dictionary: $0) }
                     .map { QueueListEvent.downloaded($0) }
                     .startWith(QueueListEvent.downloading)
                     .catchError({ (error) -> Observable<QueueListEvent> in
                         return Observable.just(QueueListEvent.error(error))
                     }).observeOn(MainScheduler.instance)
-            })
+                })
         }, downloadEventLoop).shareReplay(1)
 
-        self.queues = system.map { $0.cache }.filter { $0 != nil }.map { $0! }
+        self.room = system.map { $0.cache }.filter { $0 != nil }.map { $0! }
         self.contentUpdating = system.map { $0.result?.isDownloading == true }
         self.contentUpdated = system.filter { $0.result?.isDownloaded == true }.map { _ in return () }
     }
 
-    private static func mapViewModels(dictionaries: [JSONDictionary]) -> [QueueViewModel] {
-        var models: [QueueViewModel] = []
-        for dictionary in dictionaries {
+    private static func mapRoomModel(dictionary: JSONDictionary) -> RoomViewModel {
+        let roomName = dictionary.string("name")!
+        let room = RoomViewModel(name: roomName)
+        var queues: [QueueViewModel] = []
+        
+        for dic in dictionary.jsonArray(key: "queues")! {
             do {
-                models.append(try QueueViewModel(dic: dictionary))
+                queues.append(try QueueViewModel(dic: dic))
             } catch {
                 print("Error occurred during JSON parsing.")
             }
         }
-        return models
+        
+        room.queues = queues
+        return room
     }
 }
 

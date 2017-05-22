@@ -74,9 +74,11 @@ class QueuesViewController: UIViewController {
         tableView.tableFooterView = UIView()
         
         viewModel.contentUpdating.bind(to: refreshControl.rx.isRefreshing).disposed(by: disposeBag)
-        viewModel.queues.map { [QueueListSection(items: $0)] }
+        viewModel.room.map { $0.name }.bind(to: navigationItem.rx.title).disposed(by: disposeBag)
+        viewModel.room.map { [QueueListSection(items: $0.queues ?? [])] }
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+        
         view.addSubview(tableView)
     }
 }

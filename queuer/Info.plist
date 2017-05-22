@@ -24,6 +24,10 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>We need to access your camera for scanning QR code.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

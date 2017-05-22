@@ -33,14 +33,17 @@ class TicketViewController: UIViewController {
         setupView()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.barTintColor = UIConstants.navigationBarTintColor
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        appearanceSetup()
     }
     
-    private func setupView() {
-        appearanceSetup()
-        leadingTextSetup()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.barTintColor = UIConstants.navigationBarBarTintColor
+    }
+    
+    private func setupView() {        leadingTextSetup()
         ticketSetup()
         trailingTextSetup()
         cancelButtonSetup()
@@ -48,6 +51,10 @@ class TicketViewController: UIViewController {
     
     private func appearanceSetup() {
         navigationItem.title = viewModel.queueName
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "BackWhiteChevron"), style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem!.rx.tap.bind { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }.disposed(by: disposeBag)
         
         switch viewModel.ticketState {
         case .waiting:
